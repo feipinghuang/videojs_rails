@@ -50,7 +50,7 @@ namespace :videojs do
         File.foreach(jsdev) do |line|
           # Handle swf => asset_path('video-js.swf')
           out <<
-            line.sub(/(videojs\.options\['flash'\]\['swf'\]\s*=\s*).*/, %q(\1"<%= asset_path('video-js.swf') %>";))
+            line.sub(/(options\.swf\s*=\s*).*/, %q(\1"<%= asset_path('video-js.swf') %>";))
         end
       end
       sh "rm -f #{jsdev}"
