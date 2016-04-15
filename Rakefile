@@ -27,7 +27,7 @@ namespace :videojs do
       sh "cp #{VIDEO_JS_HOME}/dist/font/* #{VIDEO_JS_RAILS_HOME}/vendor/assets/fonts/"
       sh "cp #{VIDEO_JS_HOME}/dist/video-js.css #{VIDEO_JS_RAILS_HOME}/vendor/assets/stylesheets/"
       sh "cp #{VIDEO_JS_HOME}/dist/video-js.swf #{VIDEO_JS_RAILS_HOME}/vendor/assets/javascripts/"
-      sh "cp #{VIDEO_JS_HOME}/dist/video.min.js #{VIDEO_JS_RAILS_HOME}/vendor/assets/javascripts/"
+      sh "cp #{VIDEO_JS_HOME}/dist/video.js #{VIDEO_JS_RAILS_HOME}/vendor/assets/javascripts/"
 
       # Now, perform some asset_path and other substitutions
       puts
@@ -44,7 +44,7 @@ namespace :videojs do
 
       puts
       puts "* Updating video.js.erb for Rails asset pipeline"
-      jsdev = "#{VIDEO_JS_RAILS_HOME}/vendor/assets/javascripts/video.min.js"
+      jsdev = "#{VIDEO_JS_RAILS_HOME}/vendor/assets/javascripts/video.js"
       jserb = "#{VIDEO_JS_RAILS_HOME}/vendor/assets/javascripts/video.js.erb"
       File.open(jserb, 'w') do |out|
         File.foreach(jsdev) do |line|
